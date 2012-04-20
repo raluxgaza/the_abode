@@ -1,0 +1,35 @@
+<div class="form-horizontal">
+  <%= form_for(@property) do |f| %>
+    <fieldset>
+      <legend>Add a property</legend>
+
+      <div class="control-group">
+        <%= f.label :name %>
+        <%= f.text_field :name%>
+      </div>
+
+      <div class="control-group">
+        <%= f.label "Address line" %>
+        <%= f.text_field :location %><br /><br />
+        <p>City</p>
+        <%= f.text_field :location %><br /><br />
+        <p>State</p>
+        <%= f.select :location, nigerian_states, :prompt => true %>
+      </div>
+
+      <div class="control-group">
+        <%= f.label "Type of property" %>
+        <%= collection_select :property, :type_id, TypeOfProperty.all, :id, :name, :prompt => true %>
+      </div>
+
+      <div class="control-group">
+        <%= f.label "Legal Documents" %>
+        <%= file_field :property, :legal_docs %>
+      </div>
+
+      <div class="control-group">
+        <%= f.submit "Add Property", :class => "btn btn-success" %>
+      </div>
+    <% end %>
+  </fieldset>
+</div>

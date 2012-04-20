@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Abode</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag    "bootstrap.min" %>
+  <%= javascript_include_tag "bootstrap.min" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <div class="container-fluid">
+    <div class="row-fluid">
+
+      <div class="span2">
+        <!--Span goes here -->
+      </div>
+
+      <div class="span10">
+        <!--Body goes here -->
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
