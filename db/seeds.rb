@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+property_types = ["Land", "Private", "Commercial"]
+
+property_types.each do |type|
+  TypeOfProperty.create!(:name => type)
+end

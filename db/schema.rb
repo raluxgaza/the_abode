@@ -11,11 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120420000006) do
+ActiveRecord::Schema.define(:version => 20120429180239) do
+
+  create_table "addresses", :force => true do |t|
+    t.string   "line1"
+    t.string   "line2"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "addressable_id"
+    t.string   "addressable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "properties", :force => true do |t|
     t.string   "name"
-    t.text     "location"
+    t.text     "address"
     t.integer  "type_id"
     t.binary   "legal_docs", :limit => 16777215
     t.datetime "created_at"

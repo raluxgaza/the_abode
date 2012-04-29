@@ -1,21 +1,16 @@
 <div class="form-horizontal">
   <%= form_for(@property) do |f| %>
     <fieldset>
-      <legend>Add a property</legend>
+      <legend>Add new property</legend>
 
       <div class="control-group">
         <%= f.label :name %>
         <%= f.text_field :name%>
       </div>
 
-      <div class="control-group">
-        <%= f.label "Address line" %>
-        <%= f.text_field :location %><br /><br />
-        <p>City</p>
-        <%= f.text_field :location %><br /><br />
-        <p>State</p>
-        <%= f.select :location, nigerian_states, :prompt => true %>
-      </div>
+      <%= f.fields_for :address do |address| %>
+        <%= render :partial => 'shared/address', :locals => { :f => address } %>
+      <% end %>
 
       <div class="control-group">
         <%= f.label "Type of property" %>
@@ -29,6 +24,7 @@
 
       <div class="control-group">
         <%= f.submit "Add Property", :class => "btn btn-success" %>
+        <%= link_to "Cancel", root_path, :class => "btn" %>
       </div>
     <% end %>
   </fieldset>
