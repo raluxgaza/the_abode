@@ -1,0 +1,17 @@
+<div class="control-group">
+  <%= f.label :name %>
+  <%= f.text_field :name%>
+</div>
+
+<div class="control-group">
+  <%= f.label "Type of property" %>
+  <%= collection_select :property, :type_id, TypeOfProperty.all, :id, :name, :prompt => true %>
+</div>
+
+<div class="control-group">
+  <%= f.label "Legal Documents" %>
+  <%= file_field :property, :legal_docs %>
+</div>
+
+
+

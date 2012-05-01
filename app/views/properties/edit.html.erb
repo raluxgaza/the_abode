@@ -1,0 +1,17 @@
+<h1>Edit <%= @property.name %></h1>
+
+<div class="form-horizontal">
+  <%= form_for(@property) do |f| %>
+    <legend>Make updates</legend>
+
+    <%= render 'shared/form', :f => f %>
+    <%= f.fields_for :address do |address| %>
+      <%= render :partial => 'shared/address', :locals => { :f => address } %>
+    <% end %>
+
+    <div class="control-group">
+      <%= f.submit "Update property", :class => "btn btn-success" %>
+      <%= link_to "Cancel", property_path(@property), :class => "btn" %>
+    </div>
+  <% end %>
+</div>

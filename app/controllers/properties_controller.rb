@@ -1,10 +1,12 @@
 class PropertiesController < ApplicationController
+  before_filter :current_property, :only => [:show, :edit, :update]
+
   def index
     @properties = Property.all
   end
 
   def show
-    @property = Property.find(params[:id])
+    current_property
   end
 
   def new
@@ -21,7 +23,23 @@ class PropertiesController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @property.update_attributes(params[:property])
+      redirect_to property_path(@property)
+    else
+      render 'edit'
+    end
+  end
+
   def delete
   end
 
+  private
+
+  def current_property
+    @property = Property.find(params[:id])
+  end
 end
