@@ -8,4 +8,5 @@ module PropertiesHelper
      "Niger", "Ogun", "Ondo", "Osun", "Oyo", "Plateau", "Rivers", "Sokoto", 
      "Taraba", "Yobe", "Zamfara"]
   end
+
 end

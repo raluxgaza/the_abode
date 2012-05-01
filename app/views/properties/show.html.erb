@@ -1,2 +1,36 @@
-<h1>Properties#show</h1>
-<p>Find me in app/views/properties/show.html.erb</p>
+<h1><%= @property.name %></h1>
+
+<br /><h3><%= link_to "Edit", edit_property_path(@property) %></h3>
+
+<table class="table table-bordered">
+  <tr>
+    <th>Address</th>
+    <td>
+      <%= "#{ @property.address.line1 } #{ @property.address.line2 unless nil }, #{@property.address.city}, #{@property.address.state}." %>
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td><%= TypeOfProperty.find(@property.type_id).name %></td>
+  </tr>
+
+  <tr>
+    <th>Location</th>
+    <td>
+    <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.co.uk/maps/ms?msa=0&amp;msid=210355450526677634510.0004bef9a9077023d7c62&amp;ie=UTF8&amp;ll=9.634629,6.54254&amp;spn=0,0&amp;t=h&amp;output=embed"></iframe><br /><small>View <a href="http://maps.google.co.uk/maps/ms?msa=0&amp;msid=210355450526677634510.0004bef9a9077023d7c62&amp;ie=UTF8&amp;ll=9.634629,6.54254&amp;spn=0,0&amp;t=h&amp;source=embed" style="color:#0000FF;text-align:left">9.634629, 6.542540</a> in a larger map</small>
+    </td>
+  </tr>
+
+  <tr>
+    <th>Nos of flats</th>
+    <td> 6 </td>
+  </tr>
+
+  <tr>
+    <th>Nos of bedrooms per flat</th>
+    <td>3, 3 beds. 2, 2 beds.</td>
+  </tr>
+
+</table>
+
+<%= link_to "Back", properties_path %>

@@ -1,8 +1,10 @@
 class PropertiesController < ApplicationController
   def index
+    @properties = Property.all
   end
 
   def show
+    @property = Property.find(params[:id])
   end
 
   def new
@@ -13,7 +15,7 @@ class PropertiesController < ApplicationController
   def create
     @property = Property.new(params[:property])
     if @property.save
-      redirect_to root_path, :flash[:success] => "Property added successfully"
+      redirect_to root_path
     else
       render 'new'
     end

@@ -1,2 +1,18 @@
-<h1>Properties#index</h1>
-<p>Find me in app/views/properties/index.html.erb</p>
+<% if @properties %>
+  <table class="table">
+    <tr>
+      <th>Property</th>
+      <th>Address</th>
+      <th>Type</th>
+    </tr>
+    <% @properties.each do |p| %>
+      <tr>
+        <td><%= link_to p.name, property_path(p) %></td>
+        <td><%= "#{p.address.line1} #{p.address.line2 unless nil}, #{p.address.city}, #{p.address.state}" %></td>
+        <td><%= TypeOfProperty.find(p.type_id).name %></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p> There are currently no properties added. <%= link_to "Please add a property", new_property_path, :class => "btn btn-large btn-primary" %> </p>
+<% end %>
