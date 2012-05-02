@@ -28,7 +28,7 @@ class PropertiesController < ApplicationController
 
   def update
     if @property.update_attributes(params[:property])
-      redirect_to property_path(@property)
+      redirect_to property_path(@property), :flash => { :success => "Update was successful" }
     else
       render 'edit'
     end
