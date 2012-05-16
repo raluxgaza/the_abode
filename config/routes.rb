@@ -1,6 +1,7 @@
 TheAbode::Application.routes.draw do
 
   resources :properties
+  resources :sessions,    :only => [:new, :create, :destroy]
 
   root :to => "pages#home"
   # The priority is based upon order of creation:
