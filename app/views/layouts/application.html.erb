@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The Abode</title>
+  <title> <%= title %> </title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= stylesheet_link_tag    "bootstrap.min" %>
@@ -17,8 +17,12 @@
         <!--Span goes here -->
         <ul class="nav nav-pills nav-stacked">
           <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Logout", "#" %></li>
-          <li><%= link_to "About", "#" %></li>
+        <% if signed_in? %>
+          <li><%= link_to "Profile", "#" %></li>
+          <li><%= link_to "Sign out", signout_path %></li>
+        <% else %>
+          <li><%= link_to "Sign in", signin_path %></li>
+        <% end %>
         </ul>
       </div>
 

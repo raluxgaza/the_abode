@@ -1,3 +1,4 @@
+<% if signed_in? %>
   <table class="table">
     <tr>
       <td><%= link_to "Add new property", new_property_path, :class => "btn btn-primary btn-large btn-long" %></td>
@@ -8,3 +9,11 @@
       <td><%= link_to "View existing renters", "#", :class => "btn btn-info btn-large btn-long" %></td>
     </tr>
   </table>
+<% else %>
+  <div>
+    <br />
+    <h1>The Abode. </h1>
+    <h4>Asset and Rent Management System</h4><br /><br />
+    <h1>Please <%= link_to "sign in", signin_path %> to access or <%= link_to "sign up", signup_path %>.</h1>
+  </div>
+<% end %>
