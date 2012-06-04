@@ -1,0 +1,11 @@
+<h1>Edit user</h1>
+
+<%= form_for(@user) do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+  <%= render 'fields', :f => f %>
+
+  <div class="">
+    <%= f.submit "Update", :class => "btn btn-success" %>
+    <%= link_to "Cancel", current_user, :class => "btn btn-fail" %>
+  </div>
+<% end %>

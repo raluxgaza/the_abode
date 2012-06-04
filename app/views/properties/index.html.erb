@@ -1,4 +1,6 @@
-<% if @properties %>
+<% if @properties == [] %>
+  <h1><br /> There are currently no properties added. <br /><%= link_to "Please add a new property", new_property_path, :class => "btn btn-large btn-primary" %> </h1>
+<% else %>
   <table class="table">
     <tr>
       <th>Property</th>
@@ -13,6 +15,4 @@
       </tr>
     <% end %>
   </table>
-<% else %>
-  <p> There are currently no properties added. <%= link_to "Please add a property", new_property_path, :class => "btn btn-large btn-primary" %> </p>
 <% end %>
