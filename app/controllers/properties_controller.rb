@@ -2,7 +2,7 @@ class PropertiesController < ApplicationController
   before_filter :current_property, :only => [:show, :edit, :update]
 
   def index
-    @properties = Property.all
+    @properties = Property.find(:all)
   end
 
   def show
@@ -17,7 +17,7 @@ class PropertiesController < ApplicationController
   def create
     @property = Property.new(params[:property])
     if @property.save
-      redirect_to root_path
+      redirect_to properties_path
     else
       render 'new'
     end
