@@ -17,5 +17,5 @@ class Property < ActiveRecord::Base
   has_one :address, :as => :addressable
   accepts_nested_attributes_for :address
 
-  has_many :rent, :through => :rental_property
+  has_many :rent
 end

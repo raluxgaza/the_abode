@@ -1,0 +1,39 @@
+<br />
+<h1>Add Rental Information</h1>
+
+<br />
+<div class="form-horizontal">
+<%= form_for(@rent) do |f| %>
+  <fieldset>
+    <div class="control-group">
+      <%= f.label "Select property" %>
+      <%= collection_select :property, :property_id, Property.all, :id, :name, :prompt => true %>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="control-group">
+      <%= f.label "Rental Amount" %>
+      <%= f.text_field :amount %>
+    </div>
+
+    <div class="control-group">
+      <%= f.label "Lease Duration" %>
+      <%= f.text_field :lease_duration %>
+    </div>
+
+    <div class="control-group">
+      <%= f.label "Description" %>
+      <%= f.text_field :description %>
+    </div>
+
+    <div class="control-group">
+      <%= f.submit "Add rent", :class => "btn btn-success" %>
+      <%= link_to "Cancel", root_path, :class => "btn" %>
+    </div>
+  </fieldset>
+<% end %>
+</div>

@@ -3,6 +3,7 @@ TheAbode::Application.routes.draw do
   resources :users
   resources :properties
   resources :sessions,    :only => [:new, :create, :destroy]
+  resources :rents
 
   root :to => "pages#home"
 
