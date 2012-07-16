@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120502144614) do
+ActiveRecord::Schema.define(:version => 20120716185317) do
 
   create_table "addresses", :force => true do |t|
     t.string   "line1"
@@ -31,6 +31,18 @@ ActiveRecord::Schema.define(:version => 20120502144614) do
     t.binary   "legal_docs", :limit => 16777215
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "rents", :force => true do |t|
+    t.integer  "person_id"
+    t.integer  "property_id"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.decimal  "amount",         :precision => 10, :scale => 0
+    t.integer  "payment_status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
   end
 
   create_table "type_of_properties", :force => true do |t|

@@ -34,5 +34,10 @@ describe Property do
       type_id_field = Property.new(@attr)
       type_id_field.should respond_to(:type_id)
     end
+
+    it "should have many rental vacancies" do
+      new_property = Property.new(@attr)
+      new_property.should respond_to(:rent)
+    end
   end
 end
