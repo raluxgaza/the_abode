@@ -3,8 +3,7 @@
 # Table name: rents
 #
 #  id             :integer(4)      not null, primary key
-#  person_id      :integer(4)
-#  property_id    :integer(4)
+#  customer_id    :integer(4)
 #  start_date     :date
 #  end_date       :date
 #  amount         :integer(10)
@@ -15,5 +14,6 @@
 #
 
 class Rent < ActiveRecord::Base
-  belongs_to :property
+  has_many :rental_property
+  has_one :property, :through => :rental_property
 end

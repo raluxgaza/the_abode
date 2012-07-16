@@ -3,8 +3,7 @@
 # Table name: rents
 #
 #  id             :integer(4)      not null, primary key
-#  person_id      :integer(4)
-#  property_id    :integer(4)
+#  customer_id    :integer(4)
 #  start_date     :date
 #  end_date       :date
 #  amount         :integer(10)
@@ -20,15 +19,19 @@ describe Rent do
 
   describe "relationships" do
 
-    it "should have a persons id" do
+    it "should have a customer id" do
       new_rent = Rent.new
-      new_rent.should respond_to(:person_id)
+      new_rent.should respond_to(:customer_id)
     end
 
-    it "should belong in a property" do
+    it "should belong to property" do
       new_rent = Rent.new
       new_rent.should respond_to(:property)
-      new_rent.should respond_to(:property_id)
+    end
+
+    it "should belong to rental_property" do
+      new_rent = Rent.new
+      new_rent.should respond_to(:rental_property)
     end
   end
 end

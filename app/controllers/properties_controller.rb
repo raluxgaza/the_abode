@@ -1,5 +1,6 @@
 class PropertiesController < ApplicationController
   before_filter :current_property, :only => [:show, :edit, :update]
+  before_filter :authenticate
 
   def index
     @properties = Property.find(:all)
